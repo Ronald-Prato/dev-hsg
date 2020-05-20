@@ -51,8 +51,8 @@ const SignUp = () => {
 
   const SignUp = () => {
     SignUpService(fields.email, fields.pass)
-      .then((res) => {
-        actions({
+      .then(async (res) => {
+         await actions({
           type: 'setState',
           payload: {
             signup: {
