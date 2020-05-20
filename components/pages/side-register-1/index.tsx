@@ -45,8 +45,8 @@ const SideRegister1 = () => {
   }, []);
 
   const getProjectInfo = async () => {
-    console.log(router.query.encrypt);
-    await NormalRegister(router.query.encrypt, '', '', '', '')
+    let link = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1];
+    await NormalRegister(link, '', '', '', '')
       .then(res => {
         setProjectInfo(res.data);
         console.log(res.data);
@@ -77,14 +77,14 @@ const SideRegister1 = () => {
     NormalRegister(router.query.encrypt, localFields.name, localFields.phone, localFields.division, localFields.unit)
       .then(res => {
         console.log("USER => ", res.data);
-        SignUpService(res.data.email[0], localFields.pass)
+        SignUpService(res.data.email, localFields.pass)
           .then((user) => {
             let currentDate = new Date().toISOString();
             let request = {
               id_user: user.userSub,
               id_project: res.data.id_project,
               name: localFields.name,
-              email: res.data.email[0],
+              email: res.data.email,
               phone_number: localFields.phone.toString(),
               creation_date: currentDate,
               modification_date: currentDate,
@@ -96,18 +96,19 @@ const SideRegister1 = () => {
             CreateNormalUser({
               ...request
             })
-              .then(async () => {
-                alert("Se ha enviado un código de verificación a " + res.data.email[0]);
+              .then(async res_ => {
+                alert("Se ha enviado un código de verificación a " + res.data.email);
+                console.log(res_);
                 setShowLoading(false);
                 await actions({
                   type: 'setState',
                   payload: {
                     ...state,
                     signup: {
-                      email: res.data.email[0],
+                      email: res.data.email,
                       password: localFields.pass
                     },
-                    sideEmail: res.data.email[0]
+                    sideEmail: res.data.email
                   }
                 })
                 Router.push('/code-confirmation');
