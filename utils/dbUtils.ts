@@ -1,5 +1,5 @@
 import { createUserURL, createProjectURL, addCollaboratorsURL, listProjectsURL, sendFileInfoURL } from '../globalVariables';
-import { NewCreatedUser, NewCreatedProject, Collaborators, MassiveMessagesT } from '../types/index.d';
+import { NewCreatedUser, NewNormalCreateUser, NewCreatedProject, Collaborators, MassiveMessagesT } from '../types/index.d';
 import Axios from 'axios';
 
 
@@ -35,6 +35,39 @@ export const CreateNewUserService = ({
       areas,
       role,
       permissions
+    }
+  })
+
+export const CreateNormalUser = ({
+  division_value,
+  residential_unit_number,
+  email,
+  phone_number,
+  id_user,
+  name,
+  creation_date,
+  modification_date,
+  type_user,
+  id_project
+}: NewNormalCreateUser) =>
+  Axios({
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    url: createUserURL,
+    data: {
+      division_value,
+      residential_unit_number,
+      email,
+      phone_number,
+      id_user,
+      name,
+      creation_date,
+      modification_date,
+      type_user,
+      id_project
     }
   })
 

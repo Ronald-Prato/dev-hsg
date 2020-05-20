@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const SideRegisterPage = () => {
+const SideRegister1Page = () => {
 
   return (
     <div>
@@ -13,4 +13,4 @@ const SideRegisterPage = () => {
   );
 };
 
-export default SideRegisterPage;
+export default SideRegister1Page;

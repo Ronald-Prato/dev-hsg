@@ -29,8 +29,9 @@ const UserMassiveLoad = ({translation, hide}: UsersMassiveLoadT) => {
     await SaveInBucket(`massive-load/${file.name}`, file)
       .then(() => {
         SendFileInfo(file.name, project.id_project.toString(), project.division, project.id_admin_type)
-          .then(() => {
+          .then(res => {
             hide();
+            console.log(res);
             setShowFilepond(true);
             setTimeout(() => alert("Archivo cargado"), 1000); 
             setFile(fileInitialProps);

@@ -34,6 +34,19 @@ export type NewCreatedUser = {
   permissions: any;
 };
 
+export type NewNormalCreateUser = {
+  division_value: string;
+  residential_unit_number: string;
+  email: string;
+  phone_number: string;
+  id_user: string;
+  name: string;
+  creation_date: string;
+  modification_date: string;
+  type_user: string;
+  id_project: string;
+};
+
 export type NewCreatedProject = {
   id_user: string,
   business_name: string,

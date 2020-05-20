@@ -51,3 +51,20 @@ export const SideRegisterService = (link?: string | string[], name?: string, pho
       phone_number
     }
   })
+
+export const NormalRegister = (link?: string | string[], name?: string, phone_number?: string, division_number?: string, residential_unit_number?: string) => 
+  Axios({
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    url: sendEncryptRegisterURL,
+    data: {
+      link,
+      name,
+      phone_number,
+      division_number,
+      residential_unit_number,
+    }
+  })

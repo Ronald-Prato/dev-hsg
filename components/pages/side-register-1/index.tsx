@@ -1,14 +1,14 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
 
-import { SideRegisterStyles } from '../side-register-1/styles';
+import { SideRegisterStyles } from './styles';
 
 import Input from '../../commons/FomInput';
 import Button from '../../commons/FormButton';
 
-import { ValidateNotEmptyFiels, ExceptionHandler, ValidatePassword, SideRegisterService } from '../../../utils/formUtils';
+import { ValidateNotEmptyFiels, ExceptionHandler, ValidatePassword, SideRegisterService, NormalRegister } from '../../../utils/formUtils';
 import { SignUpService } from '../../../utils/session';
-import { CreateNewUserService } from '../../../utils/dbUtils';
+import { CreateNormalUser } from '../../../utils/dbUtils';
 
 import Context from '../../../globalState/context';
 import Loading from '../../commons/Loading';
@@ -16,13 +16,43 @@ import Loading from '../../commons/Loading';
 
 const COMPONENT_NAME = 'side-register';
 
-const SideRegister = () => {
+let projectInfoInitialProps: {
+  admin_type: string,
+  creation_date: string,
+  division: string,
+  division_number: string,
+  id_project: string,
+  modification_date: string,
+  name: string,
+  phone_number: string,
+  residential_unit_number: string,
+  type_user: string
+};
+
+const SideRegister1 = () => {
   const { state, actions } = useContext(Context);
   const router = useRouter();
   const [showLoading, setShowLoading] = useState(false);
+  const [projectInfo, setProjectInfo] = useState(projectInfoInitialProps);
+  const [showContent, setShowContent] = useState(false);
   const [localFields, setLocalFields] = useState({
-    name: '', phone: '', pass: '', repeated_pass: ''
+    name: '', phone: '', pass: '', repeated_pass: '',
+    division: '', unit: ''
   });
+
+  useEffect(() => {
+    getProjectInfo()
+  }, []);
+
+  const getProjectInfo = async () => {
+    await NormalRegister(router.query.encrypt, '', '', '', '')
+      .then(res => {
+        setProjectInfo(res.data);
+        console.log(res.data);
+        setShowContent(true);
+      })
+      .catch(err => console.error(err))
+  };
 
   const validateBeforeSignup = () => {
     if (!ValidateNotEmptyFiels(localFields)) {
@@ -43,7 +73,7 @@ const SideRegister = () => {
 
   const sendRequest = () => {
     setShowLoading(true);
-    SideRegisterService(router.query.encrypt, localFields.name, localFields.phone)
+    NormalRegister(router.query.encrypt, localFields.name, localFields.phone, localFields.division, localFields.unit)
       .then(res => {
         console.log("USER => ", res.data);
         SignUpService(res.data.email[0], localFields.pass)
@@ -54,16 +84,15 @@ const SideRegister = () => {
               id_project: res.data.id_project,
               name: localFields.name,
               email: res.data.email[0],
-              phone_number: localFields.phone,
+              phone_number: localFields.phone.toString(),
               creation_date: currentDate,
               modification_date: currentDate,
               type_user: res.data.type_user,
-              areas: res.data.areas[0],
-              role: res.data.role[0],
-              permissions: JSON.parse(res.data.permissions[0].replace(/'/g, '"'))
+              division_value: localFields.division,
+              residential_unit_number: localFields.unit
             };
             console.log("request => ", request);
-            CreateNewUserService({
+            CreateNormalUser({
               ...request
             })
               .then(async () => {
@@ -96,12 +125,19 @@ const SideRegister = () => {
       })
       .catch(err => {
         setShowLoading(false);
-        console.error(err);
+        console.log(err);
         ExceptionHandler('No se pudo crear el usuario, intente de nuevo más tarde 001');
       })
   };
 
+  const adminTypeGet: {[key: string]: string} = {
+    "0": "casa",
+    "1": "apartamento",
+    "2": "local comercial"
+  }
+
   return (
+    showContent &&
     <div className={COMPONENT_NAME}>
       <section className={`${COMPONENT_NAME}__main-content`}>
         <img className={`${COMPONENT_NAME}__main-content_logo`} src={'/static/images/hsg-logo.png'}/>
@@ -121,6 +157,12 @@ const SideRegister = () => {
           <div className={`${COMPONENT_NAME}__main-content_inputs_pass-repeat`}>
             <Input value={localFields.repeated_pass} onChangeHandler={(value: string) => setLocalFields({...localFields, repeated_pass: value.trim()})} type={'password'} title={'Confirme Contraseña'}/>
           </div>
+          <div className={`${COMPONENT_NAME}__main-content_inputs_division`}>
+            <Input value={localFields.division} onChangeHandler={(value: string) => setLocalFields({...localFields, division: value.trim()})} type={'string'} title={`Número de ${projectInfo.division}`}/>
+          </div>
+          <div className={`${COMPONENT_NAME}__main-content_inputs_unit`}>
+            <Input value={localFields.unit} onChangeHandler={(value: string) => setLocalFields({...localFields, unit: value.trim()})} type={'string'} title={`Número de ${adminTypeGet[projectInfo.admin_type]}`}/>
+          </div>
         </div>
 
         <div className={`${COMPONENT_NAME}__main-content_buttons`}>
@@ -138,4 +180,4 @@ const SideRegister = () => {
   );
 };
 
-export default SideRegister;
+export default SideRegister1;
