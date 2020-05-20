@@ -38,7 +38,7 @@ export type NewNormalCreateUser = {
   division_value: string;
   residential_unit_number: string;
   email: string;
-  phone_number: string;
+  phone_number: number;
   id_user: string;
   name: string;
   creation_date: string;

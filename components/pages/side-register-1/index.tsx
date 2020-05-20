@@ -85,7 +85,7 @@ const SideRegister1 = () => {
               id_project: res.data.id_project,
               name: localFields.name,
               email: res.data.email,
-              phone_number: '57'+localFields.phone.toString(),
+              phone_number: parseInt('57'+localFields.phone.toString()),
               creation_date: currentDate,
               modification_date: currentDate,
               type_user: res.data.type_user,
