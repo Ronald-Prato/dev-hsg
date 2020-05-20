@@ -28,7 +28,6 @@ const MassiveMessage = ({closeSelf}: MassiveMessagesT) => {
     "torre": "Torre"
   };
 
-  console.log(project);
 
   const sendMessage = () => {
     let data = {
