@@ -45,6 +45,7 @@ const SideRegister1 = () => {
   }, []);
 
   const getProjectInfo = async () => {
+    console.log(router.query.encrypt);
     await NormalRegister(router.query.encrypt, '', '', '', '')
       .then(res => {
         setProjectInfo(res.data);
