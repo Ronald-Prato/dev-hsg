@@ -1,0 +1,20 @@
+{
+    "hsgenv": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-hsg-hsgenv-233138-authRole",
+            "UnauthRoleArn": "arn:aws:iam::185170519102:role/amplify-hsg-hsgenv-233138-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::185170519102:role/amplify-hsg-hsgenv-233138-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-hsg-hsgenv-233138-deployment",
+            "UnauthRoleName": "amplify-hsg-hsgenv-233138-unauthRole",
+            "StackName": "amplify-hsg-hsgenv-233138",
+            "StackId": "arn:aws:cloudformation:us-east-1:185170519102:stack/amplify-hsg-hsgenv-233138/fccc1ca0-8cf6-11ea-b45d-0edf444c3fff",
+            "AmplifyAppId": "d5qxsek3t49nc"
+        },
+        "categories": {
+            "auth": {
+                "hsg": {}
+            }
+        }
+    }
+}

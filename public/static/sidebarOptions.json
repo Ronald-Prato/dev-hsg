@@ -1,0 +1,20 @@
+{
+  "options": [
+    {
+      "icon": "/static/svg/homeIcon.svg",
+      "name": "Home"
+    },
+    {
+      "icon": "/static/svg/projectsIcon.svg",
+      "name": "Proyectos"
+    },
+    {
+      "icon": "/static/svg/inboxIcon.svg",
+      "name": "Bandeja"
+    },
+    {
+      "icon": "/static/svg/communicationIcon.svg",
+      "name": "Comunicaciones"
+    }
+  ]
+}

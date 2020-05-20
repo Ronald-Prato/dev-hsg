@@ -1,0 +1,15 @@
+{
+	"auth": {
+		"hsg": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"massiveload": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

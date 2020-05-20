@@ -1,0 +1,120 @@
+{
+  "questions": [
+    {
+      "id": 0,
+      "icon": "",
+      "type": "string",
+      "key": "business_name",
+      "visibleName": "Nombre del proyecto"
+    },
+    {
+      "id": 1,
+      "icon": "",
+      "type": "string",
+      "key": "country",
+      "visibleName": "País del proyecto"
+    },
+    {
+      "id": 2,
+      "icon": "",
+      "type": "string",
+      "key": "city",
+      "visibleName": "Ciudad del proyecto"
+    },
+    {
+      "id": 3,
+      "icon": "",
+      "type": "mask",
+      "mask": "999999999-9",
+      "maskChar": "_",
+      "key": "nit",
+      "visibleName": "NIT del proyecto"
+    },
+    {
+      "id": 4,
+      "icon": "",
+      "type": "string",
+      "key": "address",
+      "visibleName": "Dirección del proyecto"
+    },
+    {
+      "id": 5,
+      "icon": "",
+      "type": "cards",
+      "options": [
+        {"icon": "", "name": "Casas", "value": "casas"},
+        {"icon": "", "name": "Apartamentos", "value": "apartamentos"},
+        {"icon": "", "name": "Locales comerciales", "value": "locales-comerciales"}
+      ],
+      "optionalAnswer": false,
+      "multipleAnswers": false,
+      "key": "admin_type",
+      "visibleName": "Tipo de proyecto"
+    },
+    {
+      "id": 6,
+      "icon": "",
+      "type": "cards",
+      "options": [
+        {"icon": "", "name": "Manzana", "value": "manzana"},
+        {"icon": "", "name": "Interior", "value": "interior"},
+        {"icon": "", "name": "Torre", "value": "torre"},
+        {"icon": "", "name": "Local", "value": "local"}
+      ],
+      "optionalAnswer": false,
+      "multipleAnswers": false,
+      "key": "division",
+      "visibleName": "Divisones del proyecto"
+    },
+    {
+      "id": 7,
+      "icon": "",
+      "type": "number",
+      "key": "residential_units",
+      "visibleName": "Unidades residenciales"
+    },
+    {
+      "id": 8,
+      "icon": "",
+      "type": "email",
+      "key": "email",
+      "visibleName": "Correo electrónico del proyecto"
+    },
+    {
+      "id": 9,
+      "icon": "",
+      "type": "mask",
+      "mask": "+57 \\(999) 9999999",
+      "maskChar": "_",
+      "key": "phone_number",
+      "visibleName": "Número de teléfono del proyecto"
+    },
+
+    {
+      "id": 10,
+      "icon": "",
+      "type": "email",
+      "key": "in_charge",
+      "visibleName": "Correo de la persona a cargo del proyecto"
+    },
+
+    {
+      "id": 11,
+      "icon": "",
+      "type": "collaborators",
+      "modules": [
+        "Comunicaciones"
+      ],
+      "key": "collaborators",
+      "visibleName": "Agrega personas al proyecto"
+    },
+
+    {
+      "id": 12,
+      "icon": "",
+      "type": "summary",
+      "key": "summary",
+      "visibleName": "Resumen"
+    }
+  ]
+}
