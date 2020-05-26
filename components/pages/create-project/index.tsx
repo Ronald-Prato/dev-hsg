@@ -17,6 +17,7 @@ import { ValidateEmail } from '../../../utils/formUtils';
 import Context from '../../../globalState/context';
 
 import { QuestionStruct } from '../../../types';
+import DropList from '../../commons/DropList';
 
 const COMPONENT_NAME = 'project-wizard';
 
@@ -97,6 +98,14 @@ const ProjectWizard = () => {
       ),
       "email": () => stepComponent.push(
         <Input type={'email'} centered value={currentValue} onChangeHandler={val => setCurrentValue(val)}/>
+      ),
+      "droplist": () => stepComponent.push(
+        <DropList 
+          placeholder={questions[componentStepNumber].placeholder} 
+          cityList={questions[componentStepNumber].cityList} 
+          maxRender={questions[componentStepNumber].maxListRender}
+          onChangeHandler={val => setCurrentValue(val)}
+          savedOption={cachedAnswers[componentStepNumber]}/>
       ),
       "number": () => stepComponent.push(
         <Input centered={questions[componentStepNumber].key==='residential_units'} type={'number'} value={currentValue} onChangeHandler={val => setCurrentValue(val)}/>

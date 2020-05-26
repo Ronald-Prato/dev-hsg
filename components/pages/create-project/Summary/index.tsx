@@ -13,11 +13,12 @@ import Input from '../../../commons/FomInput';
 import MaskInput from '../../../commons/MaskInput';
 import Collaborators from '../Collaborators';
 import Loading from '../../../commons/Loading';
+import DropList from '../../../commons/DropList';
 
 import Context from '../../../../globalState/context';
 
 import { CreateNewProjectService, AddCollaboratorsService } from '../../../../utils/dbUtils';
-import { ExceptionHandler } from '../../../../utils/formUtils';
+import { ExceptionHandler, RemoveSpecialCharacters } from '../../../../utils/formUtils';
 
 const COMPONENT_NAME = 'summary';
 
@@ -32,12 +33,13 @@ const Summary = ({hideActions}: SummaryT) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   let stepComponent: any[] = [];
+  const cities = formStructure.questions.filter(x => x.key === 'city')[0].cityList;
 
 
   const bringName: {[key: string]: string} = {
     "business_name": "Nombre del proyecto",
     "nit": "NIT del proyecto",
-    "address": "Dirección del proyectoº",
+    "address": "Dirección del proyecto",
     "phone_number": "Número de teléfono del proyecto",
     "admin_type": "Tipo de proyecto",
     "residential_units": "Divisiones residenciales",
@@ -94,6 +96,14 @@ const Summary = ({hideActions}: SummaryT) => {
           centered 
           value={localAnswers[specificKey]}
           onChangeHandler={val => setLocalAnswers({...localAnswers, [specificKey]: val})}/>
+      ),
+      "droplist": () => stepComponent.push(
+        <DropList 
+          placeholder={questions[index].placeholder} 
+          cityList={questions[index].cityList} 
+          maxRender={questions[index].maxListRender}
+          onChangeHandler={(val: string) => setLocalAnswers({...localAnswers, [specificKey]: val})}
+          savedOption={localAnswers[specificKey]}/>
       ),
       "number": () => stepComponent.push(
         <Input 
@@ -160,7 +170,7 @@ const Summary = ({hideActions}: SummaryT) => {
     answers['verification_nit'] = parseInt(currentNit.split('-')[1]);
     answers['phone_number'] = parseInt(answers.phone_number.toString().replace(/ /g, '').split('(')[1].replace(')', ''));
     answers['residential_units'] = parseInt(answers.residential_units as string);
-    answers['city'] = 'Bogota' //answers.city.charAt(0).toUpperCase() + answers.city.slice(1);
+    answers['city'] = answers.city;
     answers['country'] = 'Colombia' //answers.country.charAt(0).toUpperCase() + answers.country.slice(1);
     delete answers['collaborators'];
     delete answers['summary'];
@@ -229,7 +239,12 @@ const Summary = ({hideActions}: SummaryT) => {
               </p>
 
               <div className={`${COMPONENT_NAME}__answers-render_single-answer_preview`}>
-                <p className={`${COMPONENT_NAME}__answers-render_single-answer_preview_text`}> { localAnswers[answerKey] } </p>
+                <p className={`${COMPONENT_NAME}__answers-render_single-answer_preview_text`}> {
+                  answerKey === 'city' ?
+                  cities?.filter(x => x.value === localAnswers[answerKey])[0].visibleName
+                  :
+                  localAnswers[answerKey]
+                } </p>
                 <img onClick={() => openModal(answerKey)} src={'/static/svg/edit.svg'} className={`${COMPONENT_NAME}__answers-render_single-answer_preview_edit-icon`}/> 
               </div>
 

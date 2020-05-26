@@ -68,3 +68,9 @@ export const NormalRegister = (link?: string | string[], name?: string, phone_nu
       residential_unit_number,
     }
   })
+
+export const RemoveSpecialCharacters = (str: string) => {
+  return (
+    str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  );
+};

@@ -43,8 +43,8 @@ const ProjectSection = ({projects, projectsLoaded}: HomeT) => {
             <div onClick={changeRoute} className={`${COMPONENT_NAME}__square_content_empty-button`}>
               <p className={`${COMPONENT_NAME}__square_content_empty-button_text`}> Crear nuevo proyecto </p>
             </div>
-            <style jsx> {ProjectSectionStyles} </style>
           </div>
+          <style jsx> {ProjectSectionStyles} </style>
         </div>
       )
     } else if (!loading && state.user_internal_data.projects.length) {

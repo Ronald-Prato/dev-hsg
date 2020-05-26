@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css';
+import { PRIMARY_COLOR } from '../../../globalConfig';
 
 export const LoadingStyles = css`
   .loading {
@@ -13,7 +14,7 @@ export const LoadingStyles = css`
     align-items: center;
 
     &_text {
-      color: #32a852;
+      color: ${PRIMARY_COLOR};
       margin: 20px 0 0 0;
       padding: 10px;
     }

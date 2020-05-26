@@ -1,28 +1,84 @@
 {
   "questions": [
     {
-      "id": 0,
       "icon": "",
       "type": "string",
       "key": "business_name",
       "visibleName": "Nombre del proyecto"
     },
     {
-      "id": 1,
       "icon": "",
-      "type": "string",
-      "key": "country",
-      "visibleName": "País del proyecto"
-    },
-    {
-      "id": 2,
-      "icon": "",
-      "type": "string",
+      "type": "droplist",
       "key": "city",
-      "visibleName": "Ciudad del proyecto"
+      "visibleName": "Ciudad del proyecto",
+      "placeholder": "Seleccionar ciudad",
+      "cityList": [
+        {"visibleName": "BOGOTÁ", "value": "Bogota"},
+        {"visibleName": "MEDELLÍN", "value": "Medellin"},
+        {"visibleName": "CALÍ", "value": "Cali"},
+        {"visibleName": "BARRANQUILLA", "value": "Barranquilla"},
+        {"visibleName": "CARTAGENA", "value": "Cartagena"},
+        {"visibleName": "CÚCUTA", "value": "Cucuta"},
+        {"visibleName": "SOLEDAD", "value": "Soledad"},
+        {"visibleName": "IBAGUÉ", "value": "Ibague"},
+        {"visibleName": "BUCARAMANGA", "value": "Bucaramanga"},
+        {"visibleName": "SANTA MARTA", "value": "Santa Marta"},
+        {"visibleName": "VILLAVICENCIO", "value": "Villacicencio"},
+        {"visibleName": "SOACHA", "value": "Soacha"},
+        {"visibleName": "PEREIRA", "value": "Pereira"},
+        {"visibleName": "BELLO", "value": "Bello"},
+        {"visibleName": "VALLEDUPAR", "value": "Valledupar"},
+        {"visibleName": "MONTERÍA", "value": "Monteria"},
+        {"visibleName": "PASTO", "value": "Pasto"},
+        {"visibleName": "MANIZALES", "value": "Manizales"},
+        {"visibleName": "BUENAVENTURA", "value": "Buenaventura"},
+        {"visibleName": "NEIVA", "value": "Neiva"},
+        {"visibleName": "BARRANCABERMEJA", "value": "Barrancabermeja"},
+        {"visibleName": "PALMIRA", "value": "Palmira"},
+        {"visibleName": "ARMENIA", "value": "Armenia"},
+        {"visibleName": "POPAYÁN", "value": "Popayan"},
+        {"visibleName": "SINCELEJO", "value": "Sincelejo"},
+        {"visibleName": "ITAGUI", "value": "Itagui"},
+        {"visibleName": "FLORIDABLANCA", "value": "Floridablanca"},
+        {"visibleName": "RIOHACHA", "value": "Riohacha"},
+        {"visibleName": "ENVIGADO", "value": "Envigado"},
+        {"visibleName": "TULUÁ", "value": "Tulua"},
+        {"visibleName": "DOSQUEBRADAS", "value": "Dosquebradas"},
+        {"visibleName": "SAN ANDRÉS DE TUMACO", "value": "San Andres De Tumaco"},
+        {"visibleName": "TUNJA", "value": "Tunja"},
+        {"visibleName": "GIRÓN", "value": "Giron"},
+        {"visibleName": "APARTADÓ", "value": "Apartado"},
+        {"visibleName": "FLORENCIA", "value": "Florencia"},
+        {"visibleName": "URIBIA", "value": "Uribia"},
+        {"visibleName": "IPIALES", "value": "Ipiales"},
+        {"visibleName": "TURBO", "value": "Turbo"},
+        {"visibleName": "MAICAO", "value": "Maicao"},
+        {"visibleName": "PIEDECUESTA", "value": "Piedecuesta"},
+        {"visibleName": "YOPAL", "value": "Yopal"},
+        {"visibleName": "OCAÑA", "value": "Ocaña"},
+        {"visibleName": "FUSAGASUGÁ", "value": "Fusagasuga"},
+        {"visibleName": "CARTAGO", "value": "Cartago"},
+        {"visibleName": "FACATATIVÁ", "value": "Facatativa"},
+        {"visibleName": "CHÍA", "value": "Chia"},
+        {"visibleName": "MAGANGUÉ", "value": "Magangue"},
+        {"visibleName": "PITALITO", "value": "Pitalito"},
+        {"visibleName": "CAUCASIA", "value": "Caucasia"},
+        {"visibleName": "ZIPAQUIRÁ", "value": "Zipaquira"},
+        {"visibleName": "MALAMBO", "value": "Malambo"},
+        {"visibleName": "RIONEGRO", "value": "Rionegro"},
+        {"visibleName": "LORICA", "value": "Lorica"},
+        {"visibleName": "JAMUNDI", "value": "Jamundi"},
+        {"visibleName": "QUIBDÓ", "value": "Quibdo"},
+        {"visibleName": "GUADALAJARA DE BUGA", "value": "Guadalajara De Buga"},
+        {"visibleName": "YUMBO", "value": "Yumbo"},
+        {"visibleName": "SOGAMOSO", "value": "Sogamoso"},
+        {"visibleName": "DUITAMA", "value": "Duitama"},
+        {"visibleName": "GIRARDOT", "value": "Girardot"},
+        {"visibleName": "CIÉNAGA", "value": "Cienaga"}
+      ],
+      "maxListRender": 3
     },
     {
-      "id": 3,
       "icon": "",
       "type": "mask",
       "mask": "999999999-9",
@@ -31,14 +87,12 @@
       "visibleName": "NIT del proyecto"
     },
     {
-      "id": 4,
       "icon": "",
       "type": "string",
       "key": "address",
       "visibleName": "Dirección del proyecto"
     },
     {
-      "id": 5,
       "icon": "",
       "type": "cards",
       "options": [
@@ -52,7 +106,6 @@
       "visibleName": "Tipo de proyecto"
     },
     {
-      "id": 6,
       "icon": "",
       "type": "cards",
       "options": [
@@ -67,21 +120,18 @@
       "visibleName": "Divisones del proyecto"
     },
     {
-      "id": 7,
       "icon": "",
       "type": "number",
       "key": "residential_units",
       "visibleName": "Unidades residenciales"
     },
     {
-      "id": 8,
       "icon": "",
       "type": "email",
       "key": "email",
       "visibleName": "Correo electrónico del proyecto"
     },
     {
-      "id": 9,
       "icon": "",
       "type": "mask",
       "mask": "+57 \\(999) 9999999",
@@ -91,7 +141,6 @@
     },
 
     {
-      "id": 10,
       "icon": "",
       "type": "email",
       "key": "in_charge",
@@ -99,7 +148,6 @@
     },
 
     {
-      "id": 11,
       "icon": "",
       "type": "collaborators",
       "modules": [
@@ -110,7 +158,6 @@
     },
 
     {
-      "id": 12,
       "icon": "",
       "type": "summary",
       "key": "summary",
