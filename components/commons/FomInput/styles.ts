@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css';
+import { PRIMARY_COLOR } from '../../../globalConfig';
 
 export const InputStyles = css`
   .input {
@@ -34,6 +35,18 @@ export const InputStyles = css`
       border: .5px solid rgba(0, 0, 0, .2);
       margin-bottom: 5%;
       text-align: center;
+    }
+
+    &__owner-check {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+      &_title {
+        margin: 0 20px 2px 0;
+        color: ${PRIMARY_COLOR};
+      }
     }
   }
 `;

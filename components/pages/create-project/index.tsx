@@ -99,6 +99,9 @@ const ProjectWizard = () => {
       "email": () => stepComponent.push(
         <Input type={'email'} centered value={currentValue} onChangeHandler={val => setCurrentValue(val)}/>
       ),
+      "owner": () => stepComponent.push(
+        <Input type={'email'} ownerCheck centered value={currentValue} onChangeHandler={val => setCurrentValue(val)}/>
+      ),
       "droplist": () => stepComponent.push(
         <DropList 
           placeholder={questions[componentStepNumber].placeholder} 

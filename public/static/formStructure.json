@@ -2,6 +2,12 @@
   "questions": [
     {
       "icon": "",
+      "type": "owner",
+      "key": "in_charge",
+      "visibleName": "Correo de la persona a cargo del proyecto"
+    },
+    {
+      "icon": "",
       "type": "string",
       "key": "business_name",
       "visibleName": "Nombre del proyecto"
@@ -142,7 +148,7 @@
 
     {
       "icon": "",
-      "type": "email",
+      "type": "owner",
       "key": "in_charge",
       "visibleName": "Correo de la persona a cargo del proyecto"
     },

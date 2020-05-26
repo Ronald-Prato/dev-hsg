@@ -12,6 +12,7 @@ export type FormInputT = {
   centered?: boolean;
   maxLength?: number;
   value?: string | number;
+  ownerCheck?: boolean;
 };
 
 export type FormButtonT = {
